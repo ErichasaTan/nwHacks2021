@@ -7,14 +7,24 @@
     </head>
     <body>
 <div class="parent">
-<div class="div1">Introducing the ... </div>
+<div class="div1">Introducing the</div>
 <div class="div2"><img src="images/ThePointlessButton.png"></div>
 <div class="div3">
-    <div class="center">
-        <div class="select-button">Fuck</div>
-    </div>
+    <div class="center"><button id="button" onclick="myFunction(); playMusic(); disable()">Click me</button></div>
 </div>
-<div class="div4"> </div>
+<div class="div4"><p id="quote"></p></div>
 </div>
+        <script>
+function myFunction() {
+  document.getElementById("quote").innerHTML = "Hello World";
+}          
+function playMusic(){
+  var music = new Audio("https://ia800501.us.archive.org/33/items/nyannyannyan/NyanCatoriginal.mp3");
+  music.play();
+  }
+            function disable(){
+                document.getElementById("button").disabled = true;
+            }
+</script>
     </body>
 </html>

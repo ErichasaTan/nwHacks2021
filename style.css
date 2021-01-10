@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 .parent {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
-grid-template-rows: 0.25fr, 1fr, 1fr, 1fr;
+grid-template-rows: 0.25fr, 0.25fr, 0.5fr, 1fr;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 }
@@ -29,59 +30,68 @@ img {
     margin-right: auto;
 }
 
-@size: 200px;
-@dropSize: 15px;
-@color: #f74d4d;
-@color2: #f86569;
-@dropColor: #e24f4f;
-
-  .center {
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    margin-left: -@size/2;
-    margin-top: -@size/2;
+.div3 {
+    height: 100%;
+    position: relative;
 }
 
-    .select-button {
-      .bigRedButton(@size, @dropSize, @color, @color2, @dropColor);
-    }
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+    font-family: 'Dancing Script', cursive;
+  cursor: pointer;
+  outline: none;
+  color: #000000;
+  background-color: #FF0E0E;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#button:hover {background-color: #F81111}
+
+#button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#quote {
+    font-size: 4em;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+      text-align: center;
+  font-size: 6em;
+  letter-spacing: 5px;
+  animation: colorRotate 6s linear 0s infinite;
+}
+
+@keyframes colorRotate {
+  from {
+    color: #6666ff;
   }
-
-
-.bigRedButton(@size, @dropSize, @color, @color2, @dropColor) {
-    width: @size;
-    height: @size - @size/10;
-    line-height: @size;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 50%;
-    background: @color;
-    
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @color), color-stop(100%, @color2));
-    
-     background-image: -moz-gradient(linear, left top, left bottom, color-stop(0%,@color), color-stop(100%,@color2));
-    
-    box-shadow: 0 @dropSize @dropColor;
-
-    &:active {
-      box-shadow: 0 0 @dropColor;
-      .translate(0px, @dropSize);
-      .transition( 0.1s all ease-out);
-    }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
 }
 
-.translate (@x, @y:0) {
-  -webkit-transform: translate(@x, @y);
-  -moz-transform:    translate(@x, @y);
-  -ms-transform:     translate(@x, @y);
-  -o-transform:      translate(@x, @y);
-}
 
-.transition (@transition) {
-  -webkit-transition: @transition;  
-  -moz-transition:    @transition;
-  -ms-transition:     @transition; 
-  -o-transition:      @transition;
-   transition:        @transition;
-}
+
